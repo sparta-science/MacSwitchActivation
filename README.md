@@ -6,13 +6,13 @@ When we click `Show Window` we expect the app to enter "Active State"
 
 ### Actual behaviour
 
-When we click `Show Window` we instead see the app enter "Unexpected State" (With some set-up)
+When we click `Show Window` we instead see the app enter "Unexpected State" (See Reproduction Steps)
 
 To workaround the user has to switch to another app temporarily and switch back to our app to get menu showing.
 
 ### App States
 ##### Active State: 
-* `Switch Activation` appears in top left corner
+* App name appears in the menu bar
 * App Window is on top
 * App appears in dock
 
@@ -24,14 +24,14 @@ NSApp.setActivationPolicy(.regular)
 ```
 
 ##### Accessory State:
-* `Switch Activation` does not appear in top left corner
+* App name does not appear in the menu bar
 * No App Window is visible
 * App does not appear in dock
 
 Accessory State is entered by closing the app window which triggers `NSApp.setActivationPolicy(.accessory)`
 
 ##### Unexpected State:
-* The previous active app (not "Switch Activation") appears in top left corner
+* The previous active app name appears in the menu bar
 * App Window is on top
 * App does not appear in dock
 
