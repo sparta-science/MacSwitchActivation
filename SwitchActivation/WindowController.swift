@@ -18,6 +18,10 @@ class WindowController: NSWindowController {
         showWindow(sender)
         NSApp.setActivationPolicy(.regular)
         defaults.set(false, forKey: "accessory")
+        NSApp.activate(ignoringOtherApps: true)
+        window?.becomeMain()
+        window?.becomeKey()
+        window?.menu = NSApp.mainMenu
     }
     
     override func showWindow(_ sender: Any?) {

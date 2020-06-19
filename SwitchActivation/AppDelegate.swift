@@ -10,6 +10,8 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    let defaults = UserDefaults.standard
+
     func applicationDidBecomeActive(_ notification: Notification) {
         print(#function)
     }
@@ -20,6 +22,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print(#function)
         assert(NSApp.mainMenu != nil)
         assert(NSApp.mainWindow != nil)
+        if defaults.bool(forKey: "accessory") {
+            NSApp.mainWindow!.close()
+            NSApp.setActivationPolicy(.accessory)
+        }
     }
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         print(#function)
@@ -32,7 +38,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         print(#function)
-        NSApp.setActivationPolicy(.accessory)
+//        NSApp.presentationOptions
+//        NSMenu.setMenuBarVisible(false)
+//        NSApp.setActivationPolicy(.accessory)
     }
 
 }
