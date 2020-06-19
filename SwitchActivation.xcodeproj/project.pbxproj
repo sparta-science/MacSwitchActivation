@@ -13,6 +13,7 @@
 		4A9F71E8249C9EA40023C93F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9F71E6249C9EA40023C93F /* Main.storyboard */; };
 		4A9F71F4249C9EA40023C93F /* SwitchActivationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71F3249C9EA40023C93F /* SwitchActivationUITests.swift */; };
 		4A9F71FF249C9EE10023C93F /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71FE249C9EE10023C93F /* StatusBarMenu.swift */; };
+		4A9F7201249CA1A00023C93F /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F7200249CA1A00023C93F /* WindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		4A9F71F3249C9EA40023C93F /* SwitchActivationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchActivationUITests.swift; sourceTree = "<group>"; };
 		4A9F71F5249C9EA40023C93F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9F71FE249C9EE10023C93F /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
+		4A9F7200249CA1A00023C93F /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				4A9F71E0249C9EA10023C93F /* AppDelegate.swift */,
 				4A9F71FE249C9EE10023C93F /* StatusBarMenu.swift */,
 				4A9F71E2249C9EA10023C93F /* ViewController.swift */,
+				4A9F7200249CA1A00023C93F /* WindowController.swift */,
 				4A9F71E4249C9EA40023C93F /* Assets.xcassets */,
 				4A9F71E6249C9EA40023C93F /* Main.storyboard */,
 				4A9F71E9249C9EA40023C93F /* Info.plist */,
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9F71FF249C9EE10023C93F /* StatusBarMenu.swift in Sources */,
+				4A9F7201249CA1A00023C93F /* WindowController.swift in Sources */,
 				4A9F71E3249C9EA10023C93F /* ViewController.swift in Sources */,
 				4A9F71E1249C9EA10023C93F /* AppDelegate.swift in Sources */,
 			);
