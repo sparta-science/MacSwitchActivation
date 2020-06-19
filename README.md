@@ -2,32 +2,45 @@
 Demo of SetActivationPolicy bug on Mac
 
 ### Expected behaviour
-
-When we set activation policy to regular app we want the app to be able to become active with key window and showing menu.
-
-`NSApp.setActivationPolicy(.regular)`
+When we click `Show Window` we expect the app to enter "Active State"
 
 ### Actual behaviour
 
-When we switch to regular app we see menu of the previous top app in the menu bar. And even we tell the app to activate:
-```
-        NSApp.activate(ignoringOtherApps: true)
-```
-it activates without our menu.
+When we click `Show Window` we instead see the app enter "Unexpected State" (With some set-up)
 
-To workaround user have to switch to another app temporarily and switch back to our app to get menu showing.
+To workaround the user has to switch to another app temporarily and switch back to our app to get menu showing.
 
+### App States
+##### Active State: 
+* `Switch Activation` appears in top left corner
+* App Window is on top
+* App appears in dock
+
+Active State is entered by:
+`House Icon` -> `Show Window` which should run
+```
+NSApp.activate(ignoringOtherApps: true)
+NSApp.setActivationPolicy(.regular)
+```
+
+##### Accessory State:
+* `Switch Activation` does not appear in top left corner
+* No App Window is visible
+* App does not appear in dock
+
+Accessory State is entered by closing the app window which triggers `NSApp.setActivationPolicy(.accessory)`
+
+##### Unexpected State:
+* The previous active app (not "Switch Activation") appears in top left corner
+* App Window is on top
+* App does not appear in dock
 
 
 ### Steps to reproduce
 
-1. Launch the app
-2. Notice the main window showing with proper main menu
-3. Close window
-4. Notice app changes to accessory and hides the app in the dock
-5. Restart the app
-6. Notice it starts as accessory with dock icon hiding
-7. Click on Menu bar button (looks like a house)
-8. Select Show Window in the menu dropdown
-9. Notice Window appears but no menu
-10. Cmd-tab to another app and back brings the menu
+1. Launch the app to begin in "Active State"
+2. Close app window to enter "Accessory State"
+3. Restart the app to begin in "Accessory State"
+4. Attempt to enter "Active State" by selecting `Show Window` in the menu dropdown
+5. Notice the new "Unexpected State"
+6. Cmd-tab to another app and back brings the menu and name in top left corner
