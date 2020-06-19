@@ -13,4 +13,16 @@ class WindowController: NSWindowController {
         super.windowDidLoad()
         print(#function)
     }
+    override func showWindow(_ sender: Any?) {
+        super.showWindow(sender)
+        print(#function)
+        NSApp.setActivationPolicy(.regular)
+    }
+}
+
+extension NSWindowController: NSWindowDelegate {
+    public func windowWillClose(_ notification: Notification) {
+        print(#function)
+        NSApp.setActivationPolicy(.accessory)
+    }
 }
