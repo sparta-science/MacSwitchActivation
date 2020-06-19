@@ -9,6 +9,7 @@
 import Cocoa
 
 class WindowController: NSWindowController {
+    let defaults = UserDefaults.standard
     override func windowDidLoad() {
         super.windowDidLoad()
         print(#function)
@@ -17,12 +18,17 @@ class WindowController: NSWindowController {
         super.showWindow(sender)
         print(#function)
         NSApp.setActivationPolicy(.regular)
+        defaults.set(false, forKey: "accessory")
     }
 }
 
-extension NSWindowController: NSWindowDelegate {
+extension WindowController: NSWindowDelegate {
     public func windowWillClose(_ notification: Notification) {
         print(#function)
         NSApp.setActivationPolicy(.accessory)
+        defaults.set(true, forKey: "accessory")
+    }
+    public func windowDidBecomeKey(_ notification: Notification) {
+        print(#function)
     }
 }

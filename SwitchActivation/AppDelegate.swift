@@ -10,11 +10,17 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
+    func applicationDidBecomeActive(_ notification: Notification) {
+        print(#function)
+    }
+    func applicationWillUpdate(_ notification: Notification) {
+//        print(#function)
+    }
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        print(#function)
+    }
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        print(#function)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
