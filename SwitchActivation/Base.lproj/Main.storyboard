@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SwitchActivation" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -697,13 +698,52 @@
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu title="SwitchActivation" systemMenu="apple" id="RPH-Pv-FzP" customClass="StatusBarMenu" customModule="SwitchActivation" customModuleProvider="target">
+                    <items>
+                        <menuItem image="NSHomeTemplate" id="LDt-Cs-nXf">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="pDD-7T-ckM"/>
+                        <menuItem title="Show Window" keyEquivalent="," id="WlE-sj-uIY">
+                            <connections>
+                                <action selector="showWindow:" target="B8D-0N-5wS" id="sTW-6X-wJQ"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="D09-Bz-KFu"/>
+                        <menuItem title="Services" id="rrI-oK-qgk">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <menu key="submenu" title="Services" systemMenu="services" id="vZj-Th-m37"/>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="O4P-pi-ydG"/>
+                        <menuItem title="Hide SwitchActivation" keyEquivalent="h" id="e9F-hY-hiV">
+                            <connections>
+                                <action selector="hide:" target="Oky-zY-oP4" id="kyD-Dx-Wr3"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Hide Others" keyEquivalent="h" id="am0-PF-DhN">
+                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                            <connections>
+                                <action selector="hideOtherApplications:" target="Oky-zY-oP4" id="NvF-RU-ROW"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Show All" id="GwL-Ec-jkQ">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="47p-gg-Tgx"/>
+                        <menuItem title="Quit SwitchActivation" keyEquivalent="q" id="sxg-p7-TBT">
+                            <connections>
+                                <action selector="terminate:" target="Oky-zY-oP4" id="eUt-mR-5dP"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="243" y="462"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="SwitchActivation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -714,4 +754,7 @@
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSHomeTemplate" width="14" height="14"/>
+    </resources>
 </document>
