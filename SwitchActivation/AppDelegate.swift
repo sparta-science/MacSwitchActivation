@@ -18,6 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func applicationWillFinishLaunching(_ notification: Notification) {
         print(#function)
+        assert(NSApp.mainMenu != nil)
+        assert(NSApp.mainWindow != nil)
     }
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         print(#function)
@@ -27,6 +29,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        print(#function)
+        NSApp.setActivationPolicy(.accessory)
+    }
 
 }
 

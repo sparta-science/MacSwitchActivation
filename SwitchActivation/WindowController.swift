@@ -14,11 +14,15 @@ class WindowController: NSWindowController {
         super.windowDidLoad()
         print(#function)
     }
+    @IBAction func showMainWindow(_ sender: Any) {
+        showWindow(sender)
+        NSApp.setActivationPolicy(.regular)
+        defaults.set(false, forKey: "accessory")
+    }
+    
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
         print(#function)
-        NSApp.setActivationPolicy(.regular)
-        defaults.set(false, forKey: "accessory")
     }
 }
 

@@ -706,7 +706,7 @@
                         <menuItem isSeparatorItem="YES" id="pDD-7T-ckM"/>
                         <menuItem title="Show Window" keyEquivalent="," id="WlE-sj-uIY">
                             <connections>
-                                <action selector="showWindow:" target="B8D-0N-5wS" id="sTW-6X-wJQ"/>
+                                <action selector="showMainWindow:" target="B8D-0N-5wS" id="kC8-P3-zbC"/>
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="D09-Bz-KFu"/>
