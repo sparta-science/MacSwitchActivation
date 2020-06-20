@@ -35,10 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        let defaults = UserDefaults.standard
+        if let start = defaults.object(forKey: "startAsAccessory") {
+            defaults.set(start, forKey: "accessory")
+        }
         print(#function)
-//        NSApp.presentationOptions
-//        NSMenu.setMenuBarVisible(false)
-//        NSApp.setActivationPolicy(.accessory)
     }
 
 }

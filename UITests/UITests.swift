@@ -12,18 +12,45 @@ class SwitchActivationUITests: XCTestCase {
     }
 
     func testStartingAsRegular() throws {
-        app.launchArguments = ["-accessory", "NO"]
+        app.launchArguments = ["-startAsAccessory", "NO"]
         app.launch()
         XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5),
                       "should be running in foreground")
         XCTAssertEqual(app.windows.count, 1, "should show main window")
+        verifyMenuIsHittable()
+    }
+    
+    lazy var mainMenu = menuBarsQuery["main menu"]
+    
+    func verifyMenuIsHittable() {
+        mainMenu.menuBarItems["SwitchActivation"].click()
+        mainMenu.menus.menuItems["About SwitchActivation"].click()
+        XCTAssertTrue(app.staticTexts["Version 1.0 (1)"].waitForExistence(timeout: 1))
+    }
+    
+    lazy var menuBarsQuery = app.menuBars
+    
+    func showMainWindowAndInteract() {
+        menuBarsQuery.statusItems["home"].click()
+        menuBarsQuery.statusItems.menuItems["Show Window"].click()
+        
+        let window = app.windows["Window"]
+        let textField = window.children(matching: .textField).element
+        textField.typeText("abc")
+        textField.typeKey("a", modifierFlags:.command)
+        textField.typeKey("c", modifierFlags:.command)
     }
     
     func testStartingAsAccessory() throws {
-        app.launchArguments = ["-accessory", "YES"]
+        app.launchArguments = ["-startAsAccessory", "YES"]
         app.launch()
         XCTAssertTrue(app.wait(for: .runningBackground, timeout: 5),
                       "should be running in background, was: \(app.state.rawValue)")
-        XCTAssertEqual(app.windows.count, 0, "should show main window")
+        XCTAssertEqual(app.windows.count, 0, "should not show window")
+        showMainWindowAndInteract()
+        XCTAssertTrue(mainMenu.exists)
+        XCTAssertTrue(mainMenu.menuBarItems["SwitchActivation"].exists)
+        XCTAssertTrue(mainMenu.menuBarItems["SwitchActivation"].isHittable)
+//        verifyMenuIsHittable()
     }
 }
