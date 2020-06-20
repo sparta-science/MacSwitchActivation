@@ -21,9 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillFinishLaunching(_ notification: Notification) {
         print(#function)
         assert(NSApp.mainMenu != nil)
-        assert(NSApp.mainWindow != nil)
         if defaults.bool(forKey: "accessory") {
-            NSApp.mainWindow!.close()
             NSApp.setActivationPolicy(.accessory)
         }
     }

@@ -34,7 +34,9 @@ class WindowController: NSWindowController {
     }
     
     override func showWindow(_ sender: Any?) {
-        super.showWindow(sender)
+        if !defaults.bool(forKey: "accessory") {
+            super.showWindow(sender)
+        }
         print(#function)
     }
 }
