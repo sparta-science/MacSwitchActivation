@@ -17,3 +17,13 @@ jobs:
       with:
         project: SwitchActivation.xcodeproj
         scheme: SwitchActivation
+        build-settings: -resultBundlePath ui-tests
+    - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
+      if: always()
+      run: zip -r results.zip ui-tests.xcresult
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ui-tests.xcresult
+        path: results.zip
