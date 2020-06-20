@@ -29,10 +29,11 @@ class SwitchActivationUITests: XCTestCase {
     }
     
     lazy var menuBarsQuery = app.menuBars
-    
+    lazy var menuBarStatusItem = menuBarsQuery.statusItems["home"]
+
     func showMainWindowAndInteract() {
-        menuBarsQuery.statusItems["home"].click()
-        menuBarsQuery.statusItems.menuItems["Show Window"].click()
+        menuBarStatusItem.click()
+        app.menuItems["Show Window"].click()
         
         let window = app.windows["Window"]
         let textField = window.children(matching: .textField).element
@@ -51,6 +52,6 @@ class SwitchActivationUITests: XCTestCase {
         XCTAssertTrue(mainMenu.exists)
         XCTAssertTrue(mainMenu.menuBarItems["SwitchActivation"].exists)
         XCTAssertTrue(mainMenu.menuBarItems["SwitchActivation"].isHittable)
-//        verifyMenuIsHittable()
+        verifyMenuIsHittable()
     }
 }
