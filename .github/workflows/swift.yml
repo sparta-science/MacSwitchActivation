@@ -7,14 +7,13 @@ on:
 
 jobs:
   build-and-test:
-
     runs-on: macos-latest
-
     steps:
+
     - uses: actions/checkout@v2
+
     - name: All Tests
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
-        workspace: SwitchActivation.xcworkspace
-        scheme: SwitchActivation  
-  
+        project: SwitchActivation.xcodeproj
+        scheme: SwitchActivation
