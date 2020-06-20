@@ -12,6 +12,8 @@ jobs:
 
     - uses: actions/checkout@v2
 
+    - name: Open Safari
+      run: open /Applications/Safari.app 
     - name: All Tests
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
