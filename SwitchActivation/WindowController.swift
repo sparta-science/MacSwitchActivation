@@ -16,9 +16,11 @@ class WindowController: NSWindowController {
         assert(NSApp.mainWindow == nil, "loaded before becoming main")
     }
     @IBAction func showMainWindow(_ sender: Any) {
-        showWindow(sender)
         NSApp.setActivationPolicy(.regular)
         defaults.set(false, forKey: "accessory")
+
+        showWindow(sender)
+
         let running = NSRunningApplication.current
         assert(!running.isHidden)
         assert(running.isActive)
@@ -38,12 +40,21 @@ class WindowController: NSWindowController {
 }
 
 extension WindowController: NSWindowDelegate {
-    public func windowWillClose(_ notification: Notification) {
+    func windowWillClose(_ notification: Notification) {
         print(#function)
         NSApp.setActivationPolicy(.accessory)
         defaults.set(true, forKey: "accessory")
     }
-    public func windowDidBecomeKey(_ notification: Notification) {
+    func windowDidBecomeMain(_ notification: Notification) {
+        print(#function)
+    }
+    func windowDidResignMain(_ notification: Notification) {
+        print(#function)
+    }
+    func windowDidBecomeKey(_ notification: Notification) {
+        print(#function)
+    }
+    func windowDidResignKey(_ notification: Notification) {
         print(#function)
     }
 }
