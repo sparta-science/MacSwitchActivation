@@ -11,7 +11,7 @@
 		4A9F71E3249C9EA10023C93F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71E2249C9EA10023C93F /* ViewController.swift */; };
 		4A9F71E5249C9EA40023C93F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9F71E4249C9EA40023C93F /* Assets.xcassets */; };
 		4A9F71E8249C9EA40023C93F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9F71E6249C9EA40023C93F /* Main.storyboard */; };
-		4A9F71F4249C9EA40023C93F /* SwitchActivationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71F3249C9EA40023C93F /* SwitchActivationUITests.swift */; };
+		4A9F71F4249C9EA40023C93F /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71F3249C9EA40023C93F /* UITests.swift */; };
 		4A9F71FF249C9EE10023C93F /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71FE249C9EE10023C93F /* StatusBarMenu.swift */; };
 		4A9F7201249CA1A00023C93F /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F7200249CA1A00023C93F /* WindowController.swift */; };
 /* End PBXBuildFile section */
@@ -34,8 +34,8 @@
 		4A9F71E7249C9EA40023C93F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A9F71E9249C9EA40023C93F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9F71EA249C9EA40023C93F /* SwitchActivation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwitchActivation.entitlements; sourceTree = "<group>"; };
-		4A9F71EF249C9EA40023C93F /* SwitchActivationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwitchActivationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A9F71F3249C9EA40023C93F /* SwitchActivationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchActivationUITests.swift; sourceTree = "<group>"; };
+		4A9F71EF249C9EA40023C93F /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A9F71F3249C9EA40023C93F /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		4A9F71F5249C9EA40023C93F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9F71FE249C9EE10023C93F /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
 		4A9F7200249CA1A00023C93F /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				4A9F71DF249C9EA00023C93F /* SwitchActivation */,
-				4A9F71F2249C9EA40023C93F /* SwitchActivationUITests */,
+				4A9F71F2249C9EA40023C93F /* UITests */,
 				4A9F71DE249C9EA00023C93F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				4A9F71DD249C9EA00023C93F /* SwitchActivation.app */,
-				4A9F71EF249C9EA40023C93F /* SwitchActivationUITests.xctest */,
+				4A9F71EF249C9EA40023C93F /* UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,13 +92,13 @@
 			path = SwitchActivation;
 			sourceTree = "<group>";
 		};
-		4A9F71F2249C9EA40023C93F /* SwitchActivationUITests */ = {
+		4A9F71F2249C9EA40023C93F /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				4A9F71F3249C9EA40023C93F /* SwitchActivationUITests.swift */,
+				4A9F71F3249C9EA40023C93F /* UITests.swift */,
 				4A9F71F5249C9EA40023C93F /* Info.plist */,
 			);
-			path = SwitchActivationUITests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,9 +121,9 @@
 			productReference = 4A9F71DD249C9EA00023C93F /* SwitchActivation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4A9F71EE249C9EA40023C93F /* SwitchActivationUITests */ = {
+		4A9F71EE249C9EA40023C93F /* UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A9F71FB249C9EA40023C93F /* Build configuration list for PBXNativeTarget "SwitchActivationUITests" */;
+			buildConfigurationList = 4A9F71FB249C9EA40023C93F /* Build configuration list for PBXNativeTarget "UITests" */;
 			buildPhases = (
 				4A9F71EB249C9EA40023C93F /* Sources */,
 				4A9F71EC249C9EA40023C93F /* Frameworks */,
@@ -134,9 +134,9 @@
 			dependencies = (
 				4A9F71F1249C9EA40023C93F /* PBXTargetDependency */,
 			);
-			name = SwitchActivationUITests;
+			name = UITests;
 			productName = SwitchActivationUITests;
-			productReference = 4A9F71EF249C9EA40023C93F /* SwitchActivationUITests.xctest */;
+			productReference = 4A9F71EF249C9EA40023C93F /* UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -172,7 +172,7 @@
 			projectRoot = "";
 			targets = (
 				4A9F71DC249C9EA00023C93F /* SwitchActivation */,
-				4A9F71EE249C9EA40023C93F /* SwitchActivationUITests */,
+				4A9F71EE249C9EA40023C93F /* UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A9F71F4249C9EA40023C93F /* SwitchActivationUITests.swift in Sources */,
+				4A9F71F4249C9EA40023C93F /* UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +393,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SwitchActivationUITests/Info.plist;
+				INFOPLIST_FILE = UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -412,7 +412,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SwitchActivationUITests/Info.plist;
+				INFOPLIST_FILE = UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -446,7 +446,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A9F71FB249C9EA40023C93F /* Build configuration list for PBXNativeTarget "SwitchActivationUITests" */ = {
+		4A9F71FB249C9EA40023C93F /* Build configuration list for PBXNativeTarget "UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A9F71FC249C9EA40023C93F /* Debug */,
