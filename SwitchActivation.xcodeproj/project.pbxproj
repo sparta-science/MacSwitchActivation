@@ -29,7 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A0C0ABF249F118000B7523D /* GitHubAction.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = GitHubAction.yml; path = .github/workflows/GitHubAction.yml; sourceTree = "<group>"; };
+		4A0C0ABF249F118000B7523D /* GitHubAction.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = GitHubAction.yml; path = .github/workflows/GitHubAction.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4A0C0AC0249F1DE700B7523D /* RegularAppTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularAppTest.swift; sourceTree = "<group>"; };
 		4A0C0AC1249F1DE700B7523D /* AccessoryAppTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryAppTest.swift; sourceTree = "<group>"; };
 		4A0C0AC4249F21EB00B7523D /* AccessoryAppSoloTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryAppSoloTest.swift; sourceTree = "<group>"; };

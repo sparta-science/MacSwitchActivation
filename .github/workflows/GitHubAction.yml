@@ -18,6 +18,8 @@ jobs:
         project: SwitchActivation.xcodeproj
         scheme: SwitchActivation
         build-settings: -resultBundlePath ui-tests
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
       run: zip -r results.zip ui-tests.xcresult
