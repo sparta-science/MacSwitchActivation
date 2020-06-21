@@ -34,7 +34,7 @@ class AccessoryAppNoOtherWindowsTest: XCTestCase {
     
     func showMainWindowAndInteract() {
         menuBarStatusItem.click()
-        app.menuItems["Show Window"].click()
+        app.menuItems["Show Main Window"].click()
         
         let window = app.windows["Window"]
         let textField = window.children(matching: .textField).element
