@@ -28,6 +28,7 @@ class AccessoryAppTest: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+        XCUIApplication(url: URL(fileURLWithPath: "/Applications/Safari.app")).activate()
     }
 
     override func tearDownWithError() throws {
