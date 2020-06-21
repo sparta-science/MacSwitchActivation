@@ -12,6 +12,7 @@
 		4A0C0AC5249F21EB00B7523D /* AccessoryAppNoOtherWindowsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C0AC4249F21EB00B7523D /* AccessoryAppNoOtherWindowsTest.swift */; };
 		4A3E193A249F362800218E91 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3E1939249F362800218E91 /* XCUIElement+Extension.swift */; };
 		4A3E193D249F645E00218E91 /* XCTWaiter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3E193C249F645E00218E91 /* XCTWaiter+Extension.swift */; };
+		4A3E193F249F6EE200218E91 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3E193E249F6EE200218E91 /* XCUIApplication+Extension.swift */; };
 		4A9F71E1249C9EA10023C93F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71E0249C9EA10023C93F /* AppDelegate.swift */; };
 		4A9F71E3249C9EA10023C93F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71E2249C9EA10023C93F /* ViewController.swift */; };
 		4A9F71E5249C9EA40023C93F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9F71E4249C9EA40023C93F /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		4A3E1939249F362800218E91 /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		4A3E193B249F630400218E91 /* UITests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UITests.entitlements; sourceTree = "<group>"; };
 		4A3E193C249F645E00218E91 /* XCTWaiter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTWaiter+Extension.swift"; sourceTree = "<group>"; };
+		4A3E193E249F6EE200218E91 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		4A9F71DD249C9EA00023C93F /* SwitchActivation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwitchActivation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9F71E0249C9EA10023C93F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A9F71E2249C9EA10023C93F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				4A0C0AC1249F1DE700B7523D /* AccessoryAppTest.swift */,
 				4A0C0AC4249F21EB00B7523D /* AccessoryAppNoOtherWindowsTest.swift */,
 				4A0C0AC0249F1DE700B7523D /* RegularAppTest.swift */,
+				4A3E193E249F6EE200218E91 /* XCUIApplication+Extension.swift */,
 				4A3E1939249F362800218E91 /* XCUIElement+Extension.swift */,
 				4A3E193C249F645E00218E91 /* XCTWaiter+Extension.swift */,
 				4A3E193B249F630400218E91 /* UITests.entitlements */,
@@ -233,6 +236,7 @@
 				4A0C0AC5249F21EB00B7523D /* AccessoryAppNoOtherWindowsTest.swift in Sources */,
 				4A3E193D249F645E00218E91 /* XCTWaiter+Extension.swift in Sources */,
 				4A0C0AC2249F1DE800B7523D /* RegularAppTest.swift in Sources */,
+				4A3E193F249F6EE200218E91 /* XCUIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

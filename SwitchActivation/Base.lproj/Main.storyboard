@@ -741,6 +741,7 @@
                             </connections>
                         </menuItem>
                     </items>
+                    <accessibility description="menu extra menu" identifier="extra menu"/>
                 </menu>
             </objects>
             <point key="canvasLocation" x="243" y="462"/>

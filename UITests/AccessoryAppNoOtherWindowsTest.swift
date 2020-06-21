@@ -33,8 +33,7 @@ class AccessoryAppNoOtherWindowsTest: XCTestCase {
     }
     
     func showMainWindowAndInteract() {
-        XCTAssertTrue(menuBarStatusItem.waitForExistence(timeout: 5))
-        menuBarStatusItem.waitToBeClickable().clickView()
+        app.clickStatusItem()
         app.menuItems["Show Main Window"].click()
         
         let window = app.windows["Window"]
