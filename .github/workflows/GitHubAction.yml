@@ -11,7 +11,8 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
-
+    - name: Close Finder Windows
+      run: osascript -e 'tell application "Finder" to close windows'
     - name: All Tests
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
