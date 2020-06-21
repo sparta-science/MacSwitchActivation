@@ -25,14 +25,22 @@ class AccessoryAppTest: XCTestCase {
             XCTAssertTrue(self.failedAsExpected)
         }
     }
+    
+    let anotherApp = XCUIApplication(url: URL(fileURLWithPath: "/Applications/Safari.app"))
+    var anotherAppWasRunning: Bool?
 
     override func setUpWithError() throws {
         continueAfterFailure = false
-        XCUIApplication(url: URL(fileURLWithPath: "/Applications/Safari.app")).activate()
+        let running: [XCUIApplication.State] = [.runningBackground, .runningForeground]
+        anotherAppWasRunning = running.contains(anotherApp.state)
+        anotherApp.activate()
     }
 
     override func tearDownWithError() throws {
         app.terminate()
+        if anotherAppWasRunning == false {
+            anotherApp.terminate()
+        }
     }
 
     func showMainWindowAndInteract() {
