@@ -12,7 +12,7 @@ jobs:
 
     - uses: actions/checkout@v2
     - name: Close Finder Windows
-      run: osascript -e 'tell application "Finder" to close windows'
+      run: osascript -e 'tell application "Finder" to close windows' || true
     - name: All Tests
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
