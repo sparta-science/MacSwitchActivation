@@ -34,6 +34,14 @@ class WindowController: NSWindowController {
         assert(window!.isVisible)
         DispatchQueue.main.async {
             assert(NSApp.mainWindow === self.window, "should become main")
+            self.makeMenuBarVisible()
+        }
+    }
+    
+    func makeMenuBarVisible() {
+        NSMenu.setMenuBarVisible(false)
+        DispatchQueue.main.async {
+            NSMenu.setMenuBarVisible(true)
         }
     }
     
