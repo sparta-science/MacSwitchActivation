@@ -5,6 +5,10 @@ import XCTest
  */
 class AccessoryAppNoOtherWindowsTest: XCTestCase {
     func skipTestWhenThereAreOtherAppsWithWindows() throws {
+        try Process.run(URL(fileURLWithPath: "/usr/bin/osascript"),
+                        arguments: ["-e", "tell application \"Finder\" to close windows"], terminationHandler: { task in
+                            XCTAssertEqual(task.terminationStatus, 0)
+        }).waitUntilExit()
         let regularApps = NSWorkspace.shared.runningApplications.filter {
             $0.activationPolicy == .regular
             && $0.bundleIdentifier != "com.apple.finder"
@@ -34,8 +38,7 @@ class AccessoryAppNoOtherWindowsTest: XCTestCase {
     
     func showMainWindowAndInteract() {
         XCTAssertTrue(menuBarStatusItem.waitForExistence(timeout: 5))
-        menuBarStatusItem.hover()
-        menuBarStatusItem.clickView()
+        menuBarStatusItem.waitToBeClickable().clickView()
         app.menuItems["Show Main Window"].click()
         
         let window = app.windows["Window"]
