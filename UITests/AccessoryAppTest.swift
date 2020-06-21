@@ -1,8 +1,30 @@
 import XCTest
 
-class SwitchActivationUITests: XCTestCase {
+class AccessoryAppTest: XCTestCase {
     let app = XCUIApplication()
     lazy var processId = app.value(forKeyPath: "_applicationImpl._currentProcess._processID") as! Int
+    lazy var menuBarsQuery = app.menuBars
+    lazy var mainMenu = menuBarsQuery["main menu"]
+    lazy var menuBarStatusItem = menuBarsQuery.statusItems["home"]
+    var failedAsExpected = false
+    var expectedFailureAtLine: Int?
+
+    func testAccessingMenuCauseFailure() throws {
+        app.launchArguments = ["-startAsAccessory", "YES"]
+        app.launch()
+        XCTAssertTrue(app.wait(for: .runningBackground, timeout: 5),
+                      "should be running in background, was: \(app.state.rawValue)")
+        XCTAssertEqual(app.windows.count, 0, "should not show window")
+        showMainWindowAndInteract()
+        XCTAssertTrue(mainMenu.exists)
+        let appMenuItem = mainMenu.menuBarItems["SwitchActivation"]
+        XCTAssertTrue(appMenuItem.exists)
+        XCTAssertEqual(appMenuItem.identifier, "app menu item")
+        expectedFailureAtLine = #line; _ = appMenuItem.isHittable
+        addTeardownBlock {
+            XCTAssertTrue(self.failedAsExpected)
+        }
+    }
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -11,26 +33,6 @@ class SwitchActivationUITests: XCTestCase {
     override func tearDownWithError() throws {
         app.terminate()
     }
-
-    func testStartingAsRegular() throws {
-        app.launchArguments = ["-startAsAccessory", "NO"]
-        app.launch()
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5),
-                      "should be running in foreground")
-        XCTAssertEqual(app.windows.count, 1, "should show main window")
-        verifyMenuIsHittable()
-    }
-    
-    lazy var mainMenu = menuBarsQuery["main menu"]
-    
-    func verifyMenuIsHittable() {
-        mainMenu.menuBarItems["SwitchActivation"].click()
-        mainMenu.menus.menuItems["About SwitchActivation"].click()
-        XCTAssertTrue(app.staticTexts["Version 1.0 (1)"].waitForExistence(timeout: 1))
-    }
-    
-    lazy var menuBarsQuery = app.menuBars
-    lazy var menuBarStatusItem = menuBarsQuery.statusItems["home"]
 
     func showMainWindowAndInteract() {
         menuBarStatusItem.click()
@@ -42,8 +44,6 @@ class SwitchActivationUITests: XCTestCase {
         textField.typeKey("a", modifierFlags:.command)
         textField.typeKey("c", modifierFlags:.command)
     }
-    
-    var failedAsExpected = false
     
     func verifyExpectedFailure(withDescription description: String) {
         XCTAssertTrue(description.hasPrefix("Failed to hit test MenuBarItem, {{45.0, 0.0}, {136.0, 22.0}}, "
@@ -61,23 +61,5 @@ class SwitchActivationUITests: XCTestCase {
             super.recordFailure(withDescription: description, inFile: filePath, atLine: lineNumber, expected: true)
         }
     }
-    
-    var expectedFailureAtLine: Int?
-    
-    func testStartingAsAccessory() throws {
-        app.launchArguments = ["-startAsAccessory", "YES"]
-        app.launch()
-        XCTAssertTrue(app.wait(for: .runningBackground, timeout: 5),
-                      "should be running in background, was: \(app.state.rawValue)")
-        XCTAssertEqual(app.windows.count, 0, "should not show window")
-        showMainWindowAndInteract()
-        XCTAssertTrue(mainMenu.exists)
-        let appMenuItem = mainMenu.menuBarItems["SwitchActivation"]
-        XCTAssertTrue(appMenuItem.exists)
-        XCTAssertEqual(appMenuItem.identifier, "app menu item")
-        expectedFailureAtLine = #line; _ = appMenuItem.isHittable
-        addTeardownBlock {
-            XCTAssertTrue(self.failedAsExpected)
-        }
-    }
+   
 }
