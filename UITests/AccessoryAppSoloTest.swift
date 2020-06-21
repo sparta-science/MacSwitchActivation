@@ -6,7 +6,7 @@ class AccessoryAppSoloTest: XCTestCase {
     lazy var mainMenu = menuBarsQuery["main menu"]
     lazy var menuBarStatusItem = menuBarsQuery.statusItems["home"]
 
-    func testAccessingMenuCauseFailure() throws {
+    func testMenuWorks() throws {
         app.launchArguments = ["-startAsAccessory", "YES"]
         app.launch()
         XCTAssertTrue(app.wait(for: .runningBackground, timeout: 5),
@@ -35,18 +35,6 @@ class AccessoryAppSoloTest: XCTestCase {
     
     override func setUpWithError() throws {
         continueAfterFailure = false
-        NSWorkspace.shared.runningApplications.forEach {
-            let property: [Any] = [
-                $0.localizedName!,
-                $0.isActive,
-                $0.isHidden,
-                $0.activationPolicy.rawValue,
-                $0.bundleIdentifier ?? "no bundle id",
-                $0.bundleURL!.path,
-                $0.executableURL!.path,
-            ]
-            NSLog(property.debugDescription)
-        }
     }
 
     override func tearDownWithError() throws {
