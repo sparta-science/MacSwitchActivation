@@ -13,8 +13,10 @@ public class StatusBarMenu: NSMenu {
     }
     func setupStatusItem() {
         statusItem.menu = self
-        statusItem.autosaveName = Bundle.main.bundleIdentifier
-        statusItem.behavior = [.terminationOnRemoval, .removalAllowed]
+        if #available(macOS 10.12, *) {
+            statusItem.autosaveName = Bundle.main.bundleIdentifier
+            statusItem.behavior = [.terminationOnRemoval, .removalAllowed]
+        }
         setupButton()
     }
     
