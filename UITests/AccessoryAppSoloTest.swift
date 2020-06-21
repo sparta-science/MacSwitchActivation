@@ -6,7 +6,7 @@ class AccessoryAppSoloTest: XCTestCase {
     lazy var mainMenu = menuBarsQuery["main menu"]
     lazy var menuBarStatusItem = menuBarsQuery.statusItems["home"]
 
-    func testMenuWorks() throws {
+    func testMainMenuWorksWhenNoOtherAppsAreRunning() throws {
         app.launchArguments = ["-startAsAccessory", "YES"]
         app.launch()
         XCTAssertTrue(app.wait(for: .runningBackground, timeout: 5),
@@ -35,6 +35,11 @@ class AccessoryAppSoloTest: XCTestCase {
     
     override func setUpWithError() throws {
         continueAfterFailure = false
+        let regularApps = NSWorkspace.shared.runningApplications.filter {
+            $0.activationPolicy == .regular
+            && $0.bundleIdentifier != "com.apple.finder"
+        }
+        try XCTSkipUnless(regularApps.isEmpty, "there other apps: \(regularApps)")
     }
 
     override func tearDownWithError() throws {
