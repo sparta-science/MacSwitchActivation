@@ -66,8 +66,8 @@ class SwitchActivationUITests: XCTestCase {
     
     func testStartingAsAccessory() throws {
         app.launchArguments = ["-startAsAccessory", "YES"]
-        app.activate()
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5),
+        app.launch()
+        XCTAssertTrue(app.wait(for: .runningBackground, timeout: 5),
                       "should be running in background, was: \(app.state.rawValue)")
         XCTAssertEqual(app.windows.count, 0, "should not show window")
         showMainWindowAndInteract()

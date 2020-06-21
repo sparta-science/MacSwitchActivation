@@ -27,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A0C0ABF249F118000B7523D /* GitHubAction.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = GitHubAction.yml; path = .github/workflows/GitHubAction.yml; sourceTree = "<group>"; };
 		4A9F71DD249C9EA00023C93F /* SwitchActivation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwitchActivation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9F71E0249C9EA10023C93F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A9F71E2249C9EA10023C93F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		4A9F71D4249C9EA00023C93F = {
 			isa = PBXGroup;
 			children = (
+				4A0C0ABF249F118000B7523D /* GitHubAction.yml */,
 				4A9F71DF249C9EA00023C93F /* SwitchActivation */,
 				4A9F71F2249C9EA40023C93F /* UITests */,
 				4A9F71DE249C9EA00023C93F /* Products */,
