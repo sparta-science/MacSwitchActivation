@@ -20,7 +20,6 @@ class AccessoryAppNoOtherWindowsTest: XCTestCase {
     let app = XCUIApplication()
     lazy var menuBarsQuery = app.menuBars
     lazy var mainMenu = menuBarsQuery["main menu"]
-    lazy var menuBarStatusItem = menuBarsQuery.statusItems["home"]
 
     func testMainMenuWorksWhenNoOtherAppsAreRunning() throws {
         app.launchArguments = ["-startAsAccessory", "YES"]
@@ -33,6 +32,9 @@ class AccessoryAppNoOtherWindowsTest: XCTestCase {
     }
     
     func showMainWindowAndInteract() {
+        app.activate()
+        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5),
+                      "should be running in foreground, was: \(app.state.rawValue)")
         app.clickStatusItem()
         app.menuItems["Show Main Window"].click()
         
