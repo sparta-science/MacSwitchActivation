@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A0C0AC2249F1DE800B7523D /* RegularAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C0AC0249F1DE700B7523D /* RegularAppTest.swift */; };
 		4A0C0AC3249F1DE800B7523D /* AccessoryAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C0AC1249F1DE700B7523D /* AccessoryAppTest.swift */; };
-		4A0C0AC5249F21EB00B7523D /* AccessoryAppSoloTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C0AC4249F21EB00B7523D /* AccessoryAppSoloTest.swift */; };
+		4A0C0AC5249F21EB00B7523D /* AccessoryAppNoOtherWindowsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C0AC4249F21EB00B7523D /* AccessoryAppNoOtherWindowsTest.swift */; };
 		4A9F71E1249C9EA10023C93F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71E0249C9EA10023C93F /* AppDelegate.swift */; };
 		4A9F71E3249C9EA10023C93F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71E2249C9EA10023C93F /* ViewController.swift */; };
 		4A9F71E5249C9EA40023C93F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9F71E4249C9EA40023C93F /* Assets.xcassets */; };
@@ -32,7 +32,7 @@
 		4A0C0ABF249F118000B7523D /* GitHubAction.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = GitHubAction.yml; path = .github/workflows/GitHubAction.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4A0C0AC0249F1DE700B7523D /* RegularAppTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularAppTest.swift; sourceTree = "<group>"; };
 		4A0C0AC1249F1DE700B7523D /* AccessoryAppTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryAppTest.swift; sourceTree = "<group>"; };
-		4A0C0AC4249F21EB00B7523D /* AccessoryAppSoloTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryAppSoloTest.swift; sourceTree = "<group>"; };
+		4A0C0AC4249F21EB00B7523D /* AccessoryAppNoOtherWindowsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryAppNoOtherWindowsTest.swift; sourceTree = "<group>"; };
 		4A9F71DD249C9EA00023C93F /* SwitchActivation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwitchActivation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9F71E0249C9EA10023C93F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A9F71E2249C9EA10023C93F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				4A0C0AC1249F1DE700B7523D /* AccessoryAppTest.swift */,
-				4A0C0AC4249F21EB00B7523D /* AccessoryAppSoloTest.swift */,
+				4A0C0AC4249F21EB00B7523D /* AccessoryAppNoOtherWindowsTest.swift */,
 				4A0C0AC0249F1DE700B7523D /* RegularAppTest.swift */,
 				4A9F71F5249C9EA40023C93F /* Info.plist */,
 			);
@@ -221,7 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A0C0AC3249F1DE800B7523D /* AccessoryAppTest.swift in Sources */,
-				4A0C0AC5249F21EB00B7523D /* AccessoryAppSoloTest.swift in Sources */,
+				4A0C0AC5249F21EB00B7523D /* AccessoryAppNoOtherWindowsTest.swift in Sources */,
 				4A0C0AC2249F1DE800B7523D /* RegularAppTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
