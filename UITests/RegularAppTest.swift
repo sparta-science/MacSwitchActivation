@@ -1,5 +1,8 @@
 import XCTest
 
+/**
+ Regular app menu is working as expected
+*/
 class RegularAppTest: XCTestCase {
     let app = XCUIApplication()
     lazy var menuBarsQuery = app.menuBars
@@ -21,7 +24,6 @@ class RegularAppTest: XCTestCase {
     override func tearDownWithError() throws {
         app.terminate()
     }
-
     
     func verifyMenuWorks() {
         mainMenu.menuBarItems["SwitchActivation"].click()
