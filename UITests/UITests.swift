@@ -43,6 +43,8 @@ class SwitchActivationUITests: XCTestCase {
         textField.typeKey("c", modifierFlags:.command)
     }
     
+    var failedAsExpected = false
+    
     func verifyExpectedFailure(withDescription description: String) {
         XCTAssertTrue(description.hasPrefix("Failed to hit test MenuBarItem, {{45.0, 0.0}, {136.0, 22.0}}, "
             + "identifier: 'app menu item', title: 'SwitchActivation', label: 'first app menu item' at point {"))
@@ -52,24 +54,30 @@ class SwitchActivationUITests: XCTestCase {
     }
     
     override func recordFailure(withDescription description: String, inFile filePath: String, atLine lineNumber: Int, expected: Bool) {
-        if lineNumber == expectedFailure, filePath == #file, expected {
+        if lineNumber == expectedFailureAtLine, filePath == #file, expected {
             verifyExpectedFailure(withDescription: description)
+            failedAsExpected = true
         } else {
             super.recordFailure(withDescription: description, inFile: filePath, atLine: lineNumber, expected: true)
         }
     }
     
-    var expectedFailure: Int?
+    var expectedFailureAtLine: Int?
     
     func testStartingAsAccessory() throws {
         app.launchArguments = ["-startAsAccessory", "YES"]
-        app.launch()
-        XCTAssertTrue(app.wait(for: .runningBackground, timeout: 5),
+        app.activate()
+        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5),
                       "should be running in background, was: \(app.state.rawValue)")
         XCTAssertEqual(app.windows.count, 0, "should not show window")
         showMainWindowAndInteract()
         XCTAssertTrue(mainMenu.exists)
-        XCTAssertTrue(mainMenu.menuBarItems["SwitchActivation"].exists)
-        expectedFailure = #line; _ = mainMenu.menuBarItems["SwitchActivation"].isHittable
+        let appMenuItem = mainMenu.menuBarItems["SwitchActivation"]
+        XCTAssertTrue(appMenuItem.exists)
+        XCTAssertEqual(appMenuItem.identifier, "app menu item")
+        expectedFailureAtLine = #line; _ = appMenuItem.isHittable
+        addTeardownBlock {
+            XCTAssertTrue(self.failedAsExpected)
+        }
     }
 }
