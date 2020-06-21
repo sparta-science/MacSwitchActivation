@@ -5,10 +5,6 @@ import XCTest
  */
 class AccessoryAppNoOtherWindowsTest: XCTestCase {
     func skipTestWhenThereAreOtherAppsWithWindows() throws {
-        try Process.run(URL(fileURLWithPath: "/usr/bin/osascript"),
-                        arguments: ["-e", "tell application \"Finder\" to close windows"], terminationHandler: { task in
-                            XCTAssertEqual(task.terminationStatus, 0)
-        }).waitUntilExit()
         let regularApps = NSWorkspace.shared.runningApplications.filter {
             $0.activationPolicy == .regular
             && $0.bundleIdentifier != "com.apple.finder"

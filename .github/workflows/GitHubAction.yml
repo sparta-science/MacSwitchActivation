@@ -12,6 +12,10 @@ jobs:
 
     - uses: actions/checkout@v2
 
+    - name: Close Finder windows not to obscure test screenshots
+      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
+    - run: defaults delete com.apple.Finder
+    - run: launchctl load /System/Library/LaunchAgents/com.apple.Finder.plist
     - name: All Tests
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
