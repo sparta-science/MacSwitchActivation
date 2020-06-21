@@ -26,9 +26,10 @@ class WindowController: NSWindowController {
         assert(running.isActive)
         // TODO: fails only in UI tests:
 //        assert(running.ownsMenuBar)
-        assert(NSApp.mainMenu != nil)
-        assert(NSApp.mainMenu!.isTornOff == false)
-        assert(NSApp.mainMenu!.menuChangedMessagesEnabled == false)
+        let mainMenu = NSApp.mainMenu
+        assert(mainMenu != nil)
+        assert(mainMenu!.isTornOff == false)
+        assert(mainMenu!.menuChangedMessagesEnabled == false)
         assert(window != nil)
         assert(window!.isVisible)
         DispatchQueue.main.async {
