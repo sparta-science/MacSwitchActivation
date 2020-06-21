@@ -1,5 +1,10 @@
 import XCTest
 
+/**
+ Accessory app menu is NOT clickable
+ trying to click cause "Failed to find parent of element"
+ even when app main menu is visible
+*/
 class AccessoryAppTest: XCTestCase {
     let app = XCUIApplication()
     lazy var processId = app.value(forKeyPath: "_applicationImpl._currentProcess._processID") as! Int

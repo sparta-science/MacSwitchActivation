@@ -1,6 +1,22 @@
 import XCTest
 
+/**
+ Accessory app menu is clickable when there are no other apps
+ */
 class AccessoryAppNoOtherWindowsTest: XCTestCase {
+    func skipTestWhenThereAreOtherAppsWithWindows() throws {
+        let regularApps = NSWorkspace.shared.runningApplications.filter {
+            $0.activationPolicy == .regular
+            && $0.bundleIdentifier != "com.apple.finder"
+        }
+        try XCTSkipUnless(regularApps.isEmpty, "there other apps: \(regularApps)")
+    }
+    
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+        try skipTestWhenThereAreOtherAppsWithWindows()
+    }
+
     let app = XCUIApplication()
     lazy var menuBarsQuery = app.menuBars
     lazy var mainMenu = menuBarsQuery["main menu"]
@@ -33,17 +49,7 @@ class AccessoryAppNoOtherWindowsTest: XCTestCase {
         XCTAssertTrue(app.staticTexts["Version 1.0 (1)"].waitForExistence(timeout: 1))
     }
     
-    override func setUpWithError() throws {
-        continueAfterFailure = false
-        let regularApps = NSWorkspace.shared.runningApplications.filter {
-            $0.activationPolicy == .regular
-            && $0.bundleIdentifier != "com.apple.finder"
-        }
-        try XCTSkipUnless(regularApps.isEmpty, "there other apps: \(regularApps)")
-    }
-
     override func tearDownWithError() throws {
         app.terminate()
     }
-
 }
