@@ -34,6 +34,7 @@ class AccessoryAppNoOtherWindowsTest: XCTestCase {
     
     func showMainWindowAndInteract() {
         app.activate()
+        menuBarStatusItem.hover()
         menuBarStatusItem.clickView()
         app.menuItems["Show Main Window"].click()
         
