@@ -5,6 +5,10 @@ on:
   pull_request:
     branches: [ master ]
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   build-and-test:
     runs-on: macos-latest
