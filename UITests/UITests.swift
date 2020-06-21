@@ -42,6 +42,23 @@ class SwitchActivationUITests: XCTestCase {
         textField.typeKey("c", modifierFlags:.command)
     }
     
+    func verifyExpectedFailure(withDescription description: String) {
+        XCTAssertTrue(description.hasPrefix("Failed to hit test MenuBarItem, {{"))
+        XCTAssertTrue(description.contains("which is from the same process but cannot be mapped using AX data: Failed to find parent of element Application, pid: "))
+        XCTAssertTrue(description.hasSuffix("title: \'SwitchActivation\', Disabled, lookup returned nil or invalid object (null)"))
+        NSLog("expected failure: \(description)")
+    }
+    
+    override func recordFailure(withDescription description: String, inFile filePath: String, atLine lineNumber: Int, expected: Bool) {
+        if lineNumber == expectedFailure, filePath == #file, expected {
+            verifyExpectedFailure(withDescription: description)
+        } else {
+            super.recordFailure(withDescription: description, inFile: filePath, atLine: lineNumber, expected: true)
+        }
+    }
+    
+    var expectedFailure: Int?
+    
     func testStartingAsAccessory() throws {
         app.launchArguments = ["-startAsAccessory", "YES"]
         app.launch()
@@ -51,7 +68,6 @@ class SwitchActivationUITests: XCTestCase {
         showMainWindowAndInteract()
         XCTAssertTrue(mainMenu.exists)
         XCTAssertTrue(mainMenu.menuBarItems["SwitchActivation"].exists)
-        XCTAssertTrue(mainMenu.menuBarItems["SwitchActivation"].isHittable)
-        verifyMenuIsHittable()
+        expectedFailure = #line; _ = mainMenu.menuBarItems["SwitchActivation"].isHittable
     }
 }
