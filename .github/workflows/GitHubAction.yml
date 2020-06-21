@@ -7,7 +7,7 @@ on:
 
 defaults:
   run:
-    shell: bash -l {0}
+    shell: bash
 
 jobs:
   build-and-test:
@@ -15,8 +15,6 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
-    - name: Close Finder Windows
-      run: sudo osascript -e 'tell application "Finder" to close windows' || true
     - name: All Tests
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
