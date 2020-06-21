@@ -2,6 +2,7 @@ import XCTest
 
 class SwitchActivationUITests: XCTestCase {
     let app = XCUIApplication()
+    lazy var processId = app.value(forKeyPath: "_applicationImpl._currentProcess._processID") as! Int
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -43,9 +44,10 @@ class SwitchActivationUITests: XCTestCase {
     }
     
     func verifyExpectedFailure(withDescription description: String) {
-        XCTAssertTrue(description.hasPrefix("Failed to hit test MenuBarItem, {{"))
-        XCTAssertTrue(description.contains("which is from the same process but cannot be mapped using AX data: Failed to find parent of element Application, pid: "))
-        XCTAssertTrue(description.hasSuffix("title: \'SwitchActivation\', Disabled, lookup returned nil or invalid object (null)"))
+        XCTAssertTrue(description.hasPrefix("Failed to hit test MenuBarItem, {{45.0, 0.0}, {136.0, 22.0}}, "
+            + "identifier: 'app menu item', title: 'SwitchActivation', label: 'first app menu item' at point {"))
+        XCTAssertTrue(description.contains("}: found AX element pid: \(processId), token:"))
+        XCTAssertTrue(description.hasSuffix(" which is from the same process but cannot be mapped using AX data: Failed to find parent of element Application, pid: \(processId), title: \'SwitchActivation\', Disabled, lookup returned nil or invalid object (null)"))
         NSLog("expected failure: \(description)")
     }
     

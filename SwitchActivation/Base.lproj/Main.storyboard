@@ -53,7 +53,9 @@
                                             </connections>
                                         </menuItem>
                                     </items>
+                                    <accessibility description="first app menu" identifier="app menu"/>
                                 </menu>
+                                <accessibility description="first app menu item" identifier="app menu item"/>
                             </menuItem>
                             <menuItem title="File" id="dMs-cI-mzQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -669,7 +671,7 @@
                                 </menu>
                             </menuItem>
                         </items>
-                        <accessibility identifier="main menu"/>
+                        <accessibility description="main menu of the app" identifier="main menu"/>
                     </menu>
                     <connections>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
