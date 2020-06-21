@@ -1,6 +1,6 @@
 import XCTest
 
-class AccessoryAppSoloTest: XCTestCase {
+class AccessoryAppNoOtherWindowsTest: XCTestCase {
     let app = XCUIApplication()
     lazy var menuBarsQuery = app.menuBars
     lazy var mainMenu = menuBarsQuery["main menu"]
