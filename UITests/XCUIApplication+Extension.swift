@@ -16,6 +16,9 @@ extension XCUIApplication {
 
     func clickStatusItem() {
         repeat {
+            NSLog(menuBars.statusItems["home"].debugDescription)
+            NSLog(menuBars.statusItems.debugDescription)
+            NSLog("attemp to click on status bar item")
             statusBarItem().clickView()
         } while !statusBarMenu().waitForExistence(timeout: Timeout.test.rawValue)
     }
