@@ -16,11 +16,13 @@ class WindowController: NSWindowController {
         assert(NSApp.mainWindow == nil, "loaded before becoming main")
     }
     @IBAction func showMainWindow(_ sender: Any) {
+        let wasAccessory = NSApp.activationPolicy() == .accessory
         NSApp.setActivationPolicy(.regular)
         defaults.set(false, forKey: "accessory")
 
+        NSApp.activate(ignoringOtherApps: true)
         showWindow(sender)
-
+        
         let running = NSRunningApplication.current
         assert(!running.isHidden)
         assert(running.isActive)
@@ -32,9 +34,11 @@ class WindowController: NSWindowController {
         assert(mainMenu!.menuChangedMessagesEnabled == false)
         assert(window != nil)
         assert(window!.isVisible)
-        DispatchQueue.main.async {
-            assert(NSApp.mainWindow === self.window, "should become main")
-            self.makeMenuBarVisible()
+        if wasAccessory {
+            DispatchQueue.main.async {
+                assert(NSApp.mainWindow === self.window, "should become main")
+                self.makeMenuBarVisible()
+            }
         }
     }
     
