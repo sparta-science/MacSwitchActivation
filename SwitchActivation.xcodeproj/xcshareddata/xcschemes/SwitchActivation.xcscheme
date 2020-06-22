@@ -37,11 +37,6 @@
                BlueprintName = "UITests"
                ReferencedContainer = "container:SwitchActivation.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "AccessoryAppNoOtherWindowsTest">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
